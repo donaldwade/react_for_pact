@@ -11,30 +11,30 @@
 * Tape (BlueTape)
 
 ## Install Node Version Manager (NVM)
-```
+```bash
 curl -o- https://raw.githubusercontent.com/creationix/nvm/v0.33.4/install.sh | bash
 source ~/.bashrc
 ```
 
 ## Install node
-```
+```bash
 nvm install --lts
 ```
 
 ## Install yarn
-```
+```bash
 curl -sS https://dl.yarnpkg.com/debian/pubkey.gpg | sudo apt-key add -
 echo "deb https://dl.yarnpkg.com/debian/ stable main" | sudo tee /etc/apt/sources.list.d/yarn.list
 sudo apt-get update && sudo apt-get install yarn
 ```
 
 ## Initialise
-```
+```bash
 yarn init
 ```
 
 ## Install webpack
-```
+```bash
 yarn add -D webpack
 ```
 
