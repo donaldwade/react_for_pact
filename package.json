@@ -1,0 +1,10 @@
+{
+  "name": "react_for_pact",
+  "version": "1.0.0",
+  "main": "index.js",
+  "repository": "git@github.com:donaldwade/react_for_pact.git",
+  "license": "MIT",
+  "devDependencies": {
+    "webpack": "^3.6.0"
+  }
+}
