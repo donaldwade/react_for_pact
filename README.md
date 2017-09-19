@@ -59,6 +59,7 @@ yarn add -D webpack
 import _ from 'lodash';
 
 const component() => {
+  const element = document.createElement('div');
   element.innerHTML = _.join(['Hello', 'webpack'], ' ');
   return element;
 }
@@ -107,5 +108,63 @@ module.exports = {
     "lodash": "^4.17.4"
   }
 }
+```
+
+## Test that things work properly
+```
+yarn build
+```
+
+## Install React and React DOM
+```
+yarn add react react-dom
+```
+
+## Add babel-loader for webpack
+```bash
+yarn add -D babel-loader
+```
+
+## Configure webpack to use babel-loader
+
+```js
+const path = require('path');
+
+module.exports = {
+  entry: './src/index.js',
+  output: {
+    filename: 'bundle.js',
+    path: path.resolve(__dirname, 'dist')
+  },
+  module: {
+    rules: [
+      {
+        test: /\.js$/,
+        exclude: /node_modules/,
+        use: {
+          loader: 'babel-loader',
+          options: {
+            presets: ['env']
+          }
+        }
+      }
+    ]
+  }
+};
+```
+
+## Add the babel react preset
+```bash
+yarn add -D babel-preset-react
+```
+In `package.json`
+```json
+"babel": {
+  "presets": [
+    "env",
+    "react"
+  ]
+}
+
 ```
 

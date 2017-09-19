@@ -1,6 +1,8 @@
 import _ from 'lodash';
+import App from './App';
 
 const component = () => {
+  const element = document.createElement('div');
   element.innerHTML = _.join(['Hello', 'webpack'], ' ');
   return element;
 }
