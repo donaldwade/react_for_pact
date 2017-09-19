@@ -39,7 +39,7 @@ yarn add -D webpack
 ```
 
 ## Check things are ok
-* Create index.html
+* Create `dist/index.html`
 
 ```html
 <!DOCTYPE html>
@@ -54,4 +54,36 @@ yarn add -D webpack
 </html>
 ```
 
+* Create `src/index.js`
+```javascript
+import _ from 'lodash';
+
+const component() => {
+  element.innerHTML = _.join(['Hello', 'webpack'], ' ');
+  return element;
+}
+
+document.body.appendChild(component());
+```
+
 ## Install babel
+```bash
+yarn add -D babel-cli babel-preset-env
+```
+
+## Create a `webpack.config.js` file
+```javascript
+const path = require('path');
+
+module.exports = {
+  entry: './src/index.js',
+  output: {
+    filename: 'bundle.js',
+    path: path.resolve(__dirname, 'dist')
+  }
+};
+```
+
+
+
+
