@@ -1,6 +1,6 @@
 import _ from 'lodash';
 
-const component() => {
+const component = () => {
   element.innerHTML = _.join(['Hello', 'webpack'], ' ');
   return element;
 }

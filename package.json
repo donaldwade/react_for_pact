@@ -4,6 +4,12 @@
   "main": "index.js",
   "repository": "git@github.com:donaldwade/react_for_pact.git",
   "license": "MIT",
+  "babel": {
+    "presets": ["env"]
+  },
+  "scripts": {
+    "build": "webpack"
+  },
   "devDependencies": {
     "babel-cli": "^6.26.0",
     "babel-preset-env": "^1.6.0",
