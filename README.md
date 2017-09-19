@@ -9,6 +9,7 @@
 * Babel
 * React
 * Tape (BlueTape)
+* Pact
 
 ## Install Node Version Manager (NVM)
 ```bash
@@ -87,19 +88,19 @@ module.exports = {
 ```
 
 ### Edit `package.json` to add a build script and configure babel
-```json
+```diff
 {
   "name": "react_for_pact",
   "version": "1.0.0",
   "main": "index.js",
   "repository": "git@github.com:donaldwade/react_for_pact.git",
   "license": "MIT",
-++"babel": {
-++  "presets": ["env"]
-++},
-++"scripts": {
-++  "build": "webpack"
-++},
++ "babel": {
++   "presets": ["env"]
++ },
++ "scripts": {
++   "build": "webpack"
++ },
   "devDependencies": {
     "babel-cli": "^6.26.0",
     "babel-preset-env": "^1.6.0",
@@ -165,6 +166,52 @@ In `package.json`
     "env",
     "react"
   ]
+}
+
+```
+## Add blue-tape for testing
+```bash
+yarn add blue-tape colortape
+```
+
+## Add babel-register
+```
+yarn add -D babel-register
+```
+
+Modify `package.json`
+```json
+{
+  "name": "react_for_pact",
+  "version": "1.0.0",
+  "main": "index.js",
+  "repository": "git@github.com:donaldwade/react_for_pact.git",
+  "license": "MIT",
+  "babel": {
+    "presets": [
+      "env",
+      "react"
+    ]
+  },
+  "scripts": {
+    "build": "webpack",
+    "test": "tape -r babel-register **/*.test.js | colortape"
+  },
+  "devDependencies": {
+    "babel-cli": "^6.26.0",
+    "babel-loader": "^7.1.2",
+    "babel-preset-env": "^1.6.0",
+    "babel-preset-react": "^6.24.1",
+    "babel-register": "^6.26.0",
+    "webpack": "^3.6.0"
+  },
+  "dependencies": {
+    "blue-tape": "^1.0.0",
+    "colortape": "^0.1.2",
+    "lodash": "^4.17.4",
+    "react": "^15.6.1",
+    "react-dom": "^15.6.1"
+  }
 }
 
 ```
