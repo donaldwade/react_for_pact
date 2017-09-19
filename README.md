@@ -88,19 +88,19 @@ module.exports = {
 ```
 
 ### Edit `package.json` to add a build script and configure babel
-```diff
+```json
 {
   "name": "react_for_pact",
   "version": "1.0.0",
   "main": "index.js",
   "repository": "git@github.com:donaldwade/react_for_pact.git",
   "license": "MIT",
-+ "babel": {
-+   "presets": ["env"]
-+ },
-+ "scripts": {
-+   "build": "webpack"
-+ },
+++"babel": {
+++  "presets": ["env"]
+++},
+++"scripts": {
+++  "build": "webpack"
+++},
   "devDependencies": {
     "babel-cli": "^6.26.0",
     "babel-preset-env": "^1.6.0",
@@ -143,11 +143,9 @@ module.exports = {
       {
         test: /\.js$/,
         exclude: /node_modules/,
-        use: {
-          loader: 'babel-loader',
-          options: {
-            presets: ['env']
-          }
+        loader: 'babel-loader',
+        options: {
+          presets: ['env']
         }
       }
     ]
@@ -160,11 +158,11 @@ module.exports = {
 yarn add -D babel-preset-react
 ```
 In `package.json`
-```json
+```diff
 "babel": {
   "presets": [
     "env",
-    "react"
++   "react"
   ]
 }
 
@@ -180,7 +178,7 @@ yarn add -D babel-register
 ```
 
 Modify `package.json`
-```json
+```diff
 {
   "name": "react_for_pact",
   "version": "1.0.0",
@@ -195,7 +193,7 @@ Modify `package.json`
   },
   "scripts": {
     "build": "webpack",
-    "test": "tape -r babel-register **/*.test.js | colortape"
++   "test": "tape -r babel-register **/*.test.js | colortape"
   },
   "devDependencies": {
     "babel-cli": "^6.26.0",
