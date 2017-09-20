@@ -1,17 +1,17 @@
 {
   "consumer": {
-    "name": "MyApp"
+    "name": "MyReactFrontEnd"
   },
   "provider": {
-    "name": "MyService"
+    "name": "GolangAPI"
   },
   "interactions": [
     {
-      "description": "a get request",
-      "providerState": "Here is a thing",
+      "description": "a GET request",
+      "providerState": "Golang API service is up",
       "request": {
         "method": "GET",
-        "path": "/key/value/one/two"
+        "path": "/go/test"
       },
       "response": {
         "status": 200,
@@ -19,8 +19,7 @@
           "Content-Type": "application/json; charset=UTF-8"
         },
         "body": {
-          "one": "two",
-          "key": "value"
+          "ok": true
         }
       }
     }

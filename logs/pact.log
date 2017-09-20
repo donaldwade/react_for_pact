@@ -1,47 +1,45 @@
-I, [2017-09-20T00:42:18.775730 #9518]  INFO -- : Received request GET /key/value/one/two
-D, [2017-09-20T00:42:18.779393 #9518] DEBUG -- : {
-  "path": "/key/value/one/two",
+I, [2017-09-20T06:10:49.560596 #16157]  INFO -- : Received request GET /go/test
+D, [2017-09-20T06:10:49.563858 #16157] DEBUG -- : {
+  "path": "/go/test",
   "query": "",
   "method": "get",
   "headers": {
     "Accept": "application/json, text/plain, */*",
     "User-Agent": "axios/0.16.2",
-    "Host": "localhost:2202",
+    "Host": "localhost:2203",
     "Connection": "close",
     "Version": "HTTP/1.1"
   }
 }
-I, [2017-09-20T00:42:18.778934 #9518]  INFO -- : Registered expected interaction GET /key/value/one/two
-D, [2017-09-20T00:42:18.780510 #9518] DEBUG -- : {
-  "description": "a get request",
-  "providerState": "Here is a thing",
+I, [2017-09-20T06:10:49.563381 #16157]  INFO -- : Registered expected interaction GET /go/test
+D, [2017-09-20T06:10:49.564755 #16157] DEBUG -- : {
+  "description": "a GET request",
+  "providerState": "Golang API service is up",
   "request": {
     "method": "GET",
-    "path": "/key/value/one/two"
+    "path": "/go/test"
   },
   "response": {
     "status": 200,
     "headers": {
-      "Content-Type": "application/json"
+      "Content-Type": "application/json; charset=UTF-8"
     },
     "body": {
-      "one": "two",
-      "key": "value"
+      "ok": true
     }
   }
 }
-I, [2017-09-20T00:42:18.780081 #9518]  INFO -- : Found matching response for GET /key/value/one/two
-D, [2017-09-20T00:42:18.782615 #9518] DEBUG -- : {
+I, [2017-09-20T06:10:49.564283 #16157]  INFO -- : Found matching response for GET /go/test
+D, [2017-09-20T06:10:49.565931 #16157] DEBUG -- : {
   "status": 200,
   "headers": {
-    "Content-Type": "application/json"
+    "Content-Type": "application/json; charset=UTF-8"
   },
   "body": {
-    "one": "two",
-    "key": "value"
+    "ok": true
   }
 }
-I, [2017-09-20T00:42:18.795423 #9518]  INFO -- : Writing pact with details {:consumer=>{:name=>"MyApp"}, :provider=>{:name=>"MyService"}, :pactfile_write_mode=>"overwrite"}
-I, [2017-09-20T00:42:18.797489 #9518]  INFO -- : Writing pact for MyService to /home/vagrant/dev/react_for_pact/pacts/myapp-myservice.json
-I, [2017-09-20T00:42:18.797283 #9518]  INFO -- : Verifying - interactions matched for example ""
-I, [2017-09-20T00:42:18.803445 #9518]  INFO -- : Cleared interactions before example ""
+I, [2017-09-20T06:10:49.576351 #16157]  INFO -- : Writing pact with details {:consumer=>{:name=>"MyReactFrontEnd"}, :provider=>{:name=>"GolangAPI"}, :pactfile_write_mode=>"overwrite"}
+I, [2017-09-20T06:10:49.579072 #16157]  INFO -- : Writing pact for GolangAPI to /home/vagrant/dev/react_for_pact/pacts/myreactfrontend-golangapi.json
+I, [2017-09-20T06:10:49.578802 #16157]  INFO -- : Verifying - interactions matched for example ""
+I, [2017-09-20T06:10:49.584671 #16157]  INFO -- : Cleared interactions before example ""

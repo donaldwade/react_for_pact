@@ -13,7 +13,8 @@
   "scripts": {
     "build": "webpack",
     "test": "tape -r babel-register **/*.test.js | colortape",
-    "tes": "tape -r babel-register promises.js"
+    "watch": "webpack --watch",
+    "start": "webpack-dev-server --host 0.0.0.0 --port 3000"
   },
   "devDependencies": {
     "babel-cli": "^6.26.0",
@@ -22,7 +23,8 @@
     "babel-preset-react": "^6.24.1",
     "babel-register": "^6.26.0",
     "pact": "^2.7.0",
-    "webpack": "^3.6.0"
+    "webpack": "^3.6.0",
+    "webpack-dev-server": "^2.8.2"
   },
   "dependencies": {
     "axios": "^0.16.2",

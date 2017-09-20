@@ -2,11 +2,9 @@ import test from 'blue-tape';
 import pact from 'pact';
 import path from 'path';
 
-import { makeRequest } from './helpers';
+import { makeRequest, hitGoEndpoint  } from './helpers';
 
 const MOCK_SERVER_PORT = 2202;
-
-let pactServer;
 
 test('Pact', (t) => {
   const provider = pact(
@@ -41,7 +39,7 @@ test('Pact', (t) => {
         willRespondWith: {
           status: 200,
           headers: {
-            'Content-Type': 'application/json'
+            'Content-Type': 'application/json; charset=UTF-8'
           },
           body: expectedResponse
         }
@@ -60,4 +58,59 @@ test('Pact', (t) => {
       provider.finalize();
       t.end();
     });
+});
+
+test("Hit Golang API", (t) => {
+  const provider = pact(
+    {
+      consumer: 'MyReactFrontEnd',
+      provider: 'GolangAPI',
+      port: MOCK_SERVER_PORT+1,
+      log: path.resolve(process.cwd(), 'logs', 'pact.log'),
+      dir: path.resolve(process.cwd(), 'pacts'),
+      logLevel: 'DEBUG',
+      spec: 2
+    }
+  );
+
+  const expectedResponse = {
+    ok: true
+  }
+
+  // const url = 'http://localhost:1323'
+  const url = 'http://localhost:2203'
+  
+  provider.setup()
+    .then(() => {
+      console.log('Adding an interaction for the Golang API');
+      provider.addInteraction({
+        state: 'Golang API service is up',
+        uponReceiving: 'a GET request',
+        withRequest: {
+          method: 'GET',
+          path: '/go/test',
+        },
+        willRespondWith: {
+          status: 200,
+          headers: {
+            'Content-Type': 'application/json; charset=UTF-8'
+          },
+          body: expectedResponse
+        }
+      })
+    })
+    .then(() => hitGoEndpoint(url))
+    .then((response) => {
+      console.log("I've got here");
+      t.deepEqual(response, expectedResponse)
+    })
+    .catch(e => {
+      throw new Error('Unable to start the Pact server: ' + e)
+    })
+    .then(() => {
+      provider.verify();
+      provider.finalize();
+      t.end();
+    });
+  
 })
