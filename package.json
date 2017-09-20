@@ -12,7 +12,8 @@
   },
   "scripts": {
     "build": "webpack",
-    "test": "tape -r babel-register **/*.test.js | colortape"
+    "test": "tape -r babel-register **/*.test.js | colortape",
+    "tes": "tape -r babel-register promises.js"
   },
   "devDependencies": {
     "babel-cli": "^6.26.0",
@@ -20,9 +21,11 @@
     "babel-preset-env": "^1.6.0",
     "babel-preset-react": "^6.24.1",
     "babel-register": "^6.26.0",
+    "pact": "^2.7.0",
     "webpack": "^3.6.0"
   },
   "dependencies": {
+    "axios": "^0.16.2",
     "blue-tape": "^1.0.0",
     "colortape": "^0.1.2",
     "lodash": "^4.17.4",

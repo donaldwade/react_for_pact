@@ -214,3 +214,27 @@ Modify `package.json`
 
 ```
 
+## Add axios so we can make an http request
+```bash
+yarn add axios
+```
+
+## Write a function to make an http request
+```js
+const makeRequest = () => {
+  axios.get('http://echo.jsontest.com/key/value/one/two')
+    .then((response) => {
+      console.log(response.data);
+    })
+    .catch((error) => {
+      console.log(error);
+    })
+}
+
+makeRequest();
+```
+
+## Add the pact library to test your function
+```bash
+yarn add -D pact
+```

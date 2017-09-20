@@ -1,0 +1,33 @@
+{
+  "consumer": {
+    "name": "MyApp"
+  },
+  "provider": {
+    "name": "MyService"
+  },
+  "interactions": [
+    {
+      "description": "a get request",
+      "providerState": "Here is a thing",
+      "request": {
+        "method": "GET",
+        "path": "/key/value/one/two"
+      },
+      "response": {
+        "status": 200,
+        "headers": {
+          "Content-Type": "application/json"
+        },
+        "body": {
+          "one": "two",
+          "key": "value"
+        }
+      }
+    }
+  ],
+  "metadata": {
+    "pactSpecification": {
+      "version": "2.0.0"
+    }
+  }
+}
